@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Pessoa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input [(ngModel)]="pessoa.Nome" label="Nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="pessoa.Sobrenome" label="Sobrenome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="number" [(ngModel)]="pessoa.Idade" label="Idade"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="email" [(ngModel)]="pessoa.Email" label="Email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="pessoa.Telefone" label="Telefone"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="save()">Salvar</ion-button>
+</ion-content>

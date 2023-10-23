@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Criar Pessoa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="nome" label="Nome"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="sobrenome" label="Sobrenome"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" [(ngModel)]="idade" label="Idade"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="email" [(ngModel)]="email" label="Email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input [(ngModel)]="telefone" label="Telefone"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item>
+          <ion-button (click)="criarPessoa()" expand="full">Criar Pessoa</ion-button>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-button (click)="showAlert()" expand="full">Criar Registros em Massa</ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
