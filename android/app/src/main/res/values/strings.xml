@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">tcc2_angular</string>
+    <string name="title_activity_main">tcc2_angular</string>
+    <string name="package_name">com.ionic.angular.tcc2</string>
+    <string name="custom_url_scheme">com.ionic.angular.tcc2</string>
+</resources>

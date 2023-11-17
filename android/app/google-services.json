@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989441296501",
+    "project_id": "projeto-angular-tcc2",
+    "storage_bucket": "projeto-angular-tcc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989441296501:android:fa8ad290b8ddd11838903c",
+        "android_client_info": {
+          "package_name": "com.ionic.angular.tcc2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmCqXauGRO9hOxGPKPiLjSNFe4WJ3X024"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

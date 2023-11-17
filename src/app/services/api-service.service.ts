@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiServiceService {
 
-  private baseUrl: string = 'http://devionic.com.br/'; // Substitua pela URL base da sua API
+  private baseUrl: string = 'https://devionic.com.br/'; // Substitua pela URL base da sua API
 
   constructor(private http: HttpClient) { }
 

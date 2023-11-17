@@ -11,9 +11,12 @@ export class ListPagePage implements OnInit {
   pessoas: any[] = [];
   constructor(private pessoaService: ApiServiceService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
     this.carregarPessoas();
-  }
+  }  
+
   carregarPessoas(): void {
     this.pessoaService.getPessoas().subscribe(data => {
       if (data.success) {
