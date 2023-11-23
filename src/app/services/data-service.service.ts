@@ -13,15 +13,15 @@ export class DataServiceService {
   pessoas$: Observable<any[]> = this.pessoasSubject.asObservable();
 
   constructor(private apiService: ApiServiceService) {
-    this.loadPessoas();
+    // this.loadPessoas();
    }
 
-  loadPessoas() {
-    this.apiService.getPessoas().subscribe(
-      (data) => {
-        this.pessoasSubject.next(data);
-      },
-      (error) => console.error('Error:', error)
-    );
-  }
+  //  loadPessoas() {
+  //   this.apiService.getPessoas().subscribe({
+  //     next: (data) => {
+  //       this.pessoasSubject.next(data);
+  //     },
+  //     error: (error) => console.error('Error:', error)
+  //   });
+  // }
 }

@@ -1,0 +1,12 @@
+/* pessoas.component.scss */
+.contador-flutuante {
+    position: fixed; /* Posicionamento fixo na tela */
+    top: 60px;       /* Altura padrão do ion-header é geralmente em torno de 56px */
+    right: 10px;     /* Posição da direita da tela */
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo semi-transparente */
+    color: white;    /* Cor do texto */
+    padding: 10px;   /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    z-index: 1000;   /* Garante que fique acima de outros elementos */
+  }
+  

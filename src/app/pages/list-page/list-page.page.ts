@@ -1,26 +1,58 @@
 import { Router } from '@angular/router';
 import { ApiServiceService } from './../../services/api-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-list-page',
   templateUrl: './list-page.page.html',
   styleUrls: ['./list-page.page.scss'],
 })
-export class ListPagePage implements OnInit {
+export class ListPagePage implements OnInit, OnDestroy  {
   pessoas: any[] = [];
+  qtde_rg: any;
+  limit = 50;
+  offset = 0;
+  isLoading = false;
+  noMoreData = false;
+  totalCarregado = 0;
+
+  @ViewChild('anchor') anchor!: ElementRef;
+
+  private observer!: IntersectionObserver;
+
   constructor(private pessoaService: ApiServiceService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.carregarPessoas(); 
+  }
 
-  ionViewWillEnter() {
-    this.carregarPessoas();
+  ngAfterViewInit() {
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  ionViewWillEnter() {     
   }  
 
   carregarPessoas(): void {
+    if (this.isLoading || this.noMoreData) return;
+    this.isLoading = true;
     this.pessoaService.getPessoas().subscribe(data => {
       if (data.success) {
-        this.pessoas = data.data;
+
+        if (data.data.length === 0) {
+          this.noMoreData = true;
+        } else {
+          this.pessoas = [...this.pessoas, ...data.data];
+          this.pessoaService.incrementOffset(data.data.length); // Atualiza o offset baseado na quantidade de dados carregados
+          this.totalCarregado += data.data.length;  
+        }
+        this.isLoading = false;            
       }
     });
   }
@@ -39,4 +71,24 @@ export class ListPagePage implements OnInit {
       }
     });
   }
+  setupIntersectionObserver() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+
+    this.observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        this.carregarPessoas();
+      }
+    }, options);
+
+    // Verifica se o elemento anchor está definido antes de observá-lo
+    if (this.anchor && this.anchor.nativeElement) {
+      this.observer.observe(this.anchor.nativeElement);
+    }
 }
+}
+
+
